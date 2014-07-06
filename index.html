@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700|Lato:100|Merriweather:400' rel='stylesheet' type='text/css'>
+	<title>Creating a Medium Style Header</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+
+	$(document).ready(function(){
+		var lastScrollTop = $(window).scrollTop();
+		if (lastScrollTop != 0) {
+			var delta = $('header').height() - lastScrollTop;
+			$('.titles').css({
+				bottom: delta/4.5,
+				opacity: delta/900
+			}); 
+		} 
+
+		$('.titles').hide().fadeIn(400);
+		
+		$(window).scroll(function(event){
+		   var scrollAmt = $(this).scrollTop();
+		   var deltaS = scrollAmt - lastScrollTop;
+	       $('.titles').css({
+	      		bottom: "-=" + deltaS/4.5,
+	      		opacity: "-=" + deltaS/700
+	       });
+
+	      if (scrollAmt >= 70) {
+	      	$('.down-arrow').css({
+			       	opacity: "-=" + deltaS/3
+			});
+	      } else if (scrollAmt < 70){
+	      	$('.down-arrow').css({
+	      		opacity: 0.9
+	      	});
+	      }
+
+		   lastScrollTop = scrollAmt;
+		}); // scroll
+	}); // document ready
+
+	</script>
+</head>
+<body>
+	<header>
+			<div class="titles">
+				<h1>Medium Style Header</h1>
+				<h2>Making parallax, blur and gradient work for the web </h2>
+			</div>
+			<a href="#">
+				<div class="down-arrow"></div>
+			</a>
+		</div>
+	</header>
+	<section>
+		<p><a href="https://medium.com/@TonyJing/medium-style-header-aa738696c6ac">Read about how this was created.</a></p>
+		
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non nisi id massa gravida sodales. Suspendisse potenti. Phasellus semper euismod posuere. Mauris a tincidunt urna. Donec malesuada feugiat tortor, eget dictum est posuere ullamcorper. Quisque ipsum tellus, molestie eget justo nec, luctus volutpat magna. Quisque non urna sit amet ante dictum hendrerit vel quis erat.</p> 
+
+		<p>Etiam commodo lobortis lacus, quis scelerisque lorem laoreet et. Sed vestibulum fermentum nulla ultricies dapibus. Maecenas congue, leo ut faucibus molestie, tortor nibh volutpat neque, ac mattis massa tellus eu sapien. Nullam et aliquam nisl, ut accumsan justo. Vestibulum auctor eros vitae magna lacinia tempor. Phasellus sollicitudin interdum sollicitudin. Cras a odio arcu. Suspendisse commodo sit amet diam vel scelerisque. Curabitur vestibulum risus nec nibh dapibus hendrerit.</p>
+
+		<p>In dapibus sollicitudin velit. Proin porttitor aliquam varius. Vestibulum scelerisque hendrerit tortor, id tempus arcu lacinia ac. Aliquam id ipsum condimentum sem aliquam elementum. Donec est purus, dictum sed eros in, consectetur pretium neque. Cras mollis condimentum ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus at elit a scelerisque. Praesent imperdiet molestie libero sit amet consectetur. Aliquam sed mi id enim molestie aliquet. Vestibulum vel sollicitudin ante. Curabitur eros eros, aliquet in eleifend eu, rhoncus eu turpis.</p>
+
+		<p>Nulla interdum libero eros, id eleifend leo feugiat auctor. Duis nec cursus turpis. Etiam sed elementum lorem, ac vulputate ligula. Donec in sollicitudin sapien. Nunc pellentesque odio non iaculis sodales. Fusce vitae nisi at dui rutrum pharetra. Maecenas interdum non quam ac faucibus. Duis pulvinar nisi non condimentum lobortis. Morbi ac dictum augue. Morbi semper mattis enim, in porta ligula commodo vel. Nunc tincidunt purus massa, a egestas lorem eleifend at.</p>
+	</section>
+
+
+
+</body>
+</html>
